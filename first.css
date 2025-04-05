@@ -46,7 +46,7 @@
   
   .logo {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 700;;
     color: var(--primary);
     display: flex;
     align-items: center;
@@ -104,8 +104,9 @@
   }
   
   .hero {
+    background-color: var(--light);
     display: flex;
-    align-items: center;
+    align-items: space-between;
     gap: 4rem;
     margin-top: 2rem;
   }
@@ -132,11 +133,17 @@
   }
   
   .hero-image img {
-    width: 100%;
+    width: 70%;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+  .hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25vw;
+  }
+
   .features {
     margin-top: 5rem;
   }
@@ -596,4 +603,10 @@
       grid-template-columns: 1fr;
       gap: 2rem;
     }
+  }
+  .logo img {
+    position: relative;
+    top: 10px;
+    width: 6rem;
+    height: 6rem;
   }
