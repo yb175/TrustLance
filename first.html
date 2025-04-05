@@ -16,7 +16,7 @@
       <div class="nav-links">
         <a href="./Find_work.html">Find Work</a>
         <a href="#">Find Talent</a>
-        <a href="#">How It Works</a>
+        <a href="#" onclick="scrollToSection()">How It Works</a>
         <a href="#">Resources</a>
       </div>
       <div class="auth-buttons">
@@ -85,7 +85,7 @@
       </div>
     </section>
     
-    <section class="how-it-works">
+    <section id="section2" class="how-it-works">
       <div class="container">
         <div class="section-title">
           <h2>How It Works</h2>
@@ -248,3 +248,9 @@
               <span class="job-tag">E-commerce</span>
             </div>
             <p class="job-description">Need an expert to build a custom Shopify store for our handcrafted products. Should include custom product filtering, subscription options, and integration with our inventory system.</p>
+            <script>
+              function scrollToSection() {
+                document.getElementById("section2").scrollIntoView({ behavior: 'smooth' });
+              }
+            </script>
+            
