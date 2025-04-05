@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Freelance Job | TalentHub</title>
+    <link rel="stylesheet" href="Find_work.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-briefcase"></i>
+                    TalentHub
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#">Find Talent</a></li>
+                        <li><a href="#">Post a Job</a></li>
+                        <li><a href="#">Browse Projects</a></li>
+                        <li><a href="#">How it Works</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline">Log In</a>
+                    <a href="#" class="btn btn-primary">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Post a Freelance Job</h1>
+                <p class="page-subtitle">Connect with skilled freelancers by creating a detailed job posting that clearly outlines your project requirements.</p>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+            
+            <div class="step-indicator">
+                <div class="step active">Job Details</div>
+                <div class="step">Requirements</div>
+                <div class="step">Budget & Timeline</div>
+                <div class="step">Review & Post</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2>Step 1: Job Details</h2>
+                </div>
+                
+                <div class="card-body">
+                    <form id="job-post-form">
+                        <div class="form-group">
+                            <label for="job-title" class="form-label">Job Title</label>
+                            <input type="text" id="job-title" name="job-title" class="form-control" placeholder="e.g., WordPress Developer Needed for E-commerce Site" required>
+                            <div class="form-tip">Be specific to attract the right talent</div>
+                            <div class="form-error">Please enter a descriptive job title</div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="category" class="form-label">Job Category</label>
+                                    <select id="category" name="category" class="form-control form-select" required>
+                                        <option value="" selected disabled>Select a category</option>
+                                        <option value="web-development">Web Development</option>
+                                        <option value="mobile-development">Mobile App Development</option>
+                                        <option value="design">Design & Creative</option>
+                                        <option value="writing">Writing & Translation</option>
+                                        <option value="digital-marketing">Digital Marketing</option>
+                                        <option value="video-animation">Video & Animation</option>
+                                        <option value="audio-music">Audio & Music</option>
+                                        <option value="data">Data & Analytics</option>
+                                        <option value="business">Business & Admin</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="experience-level" class="form-label">Experience Level</label>
+                                    <select id="experience-level" name="experience-level" class="form-control form-select" required>
+                                        <option value="" selected disabled>Select experience level</option>
+                                        <option value="entry">Entry Level</option>
+                                        <option value="intermediate">Intermediate</option>
+                                        <option value="expert">Expert</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="job-type" class="form-label">Job Type</label>
+                                    <select id="job-type" name="job-type" class="form-control form-select" required>
+                                        <option value="" selected disabled>Select job type</option>
+                                        <option value="one-time">One-time project</option>
+                                        <option value="ongoing">Ongoing project</option>
+                                        <option value="contract">Contract work</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="project-length" class="form-label">Project Length <span class="optional">(Optional)</span></label>
+                                    <select id="project-length" name="project-length" class="form-control form-select">
+                                        <option value="" selected disabled>Select project length</option>
+                                        <option value="small">Small - Less than 1 week</option>
+                                        <option value="medium">Medium - 1-4 weeks</option>
+                                        <option value="large">Large - 1-3 months</option>
+                                        <option value="ongoing">Ongoing - 3+ months</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description" class="form-label">Job Description</label>
+                            <textarea id="description" name="description" class="form-control" placeholder="Describe your project in detail. Include specific requirements, deliverables, and relevant background information." required></textarea>
+                            <div class="form-tip">Pro tip: Clear, detailed descriptions attract better proposals from freelancers</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="skills" class="form-label">Required Skills</label>
+                            <input type="text" id="skills" name="skills" class="form-control" placeholder="Type a skill and press Enter (e.g., React.js, Photoshop)">
+                            <div class="skill-tags" id="skill-tags">
+                                <!-- Skills will be added here dynamically -->
+                            </div>
+                            <div class="form-tip">Add at least 3 skills that are essential for your project</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Budget Type</label>
+                            <div class="budget-toggle">
+                                <input type="radio" id="fixed-price" name="budget-type" value="fixed" checked>
+                                <label for="fixed-price">Fixed Price</label>
+                                
+                                <input type="radio" id="hourly-rate" name="budget-type" value="hourly">
+                                <label for="hourly-rate">Hourly Rate</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="budget" class="form-label">Budget Amount</label>
+                                    <input type="number" id="budget" name="budget" class="form-control" placeholder="Enter amount in USD" required>
+                                </div>
+                            </div>
+                            
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="deadline" class="form-label">Project Deadline <span class="optional">(Optional)</span></label>
+                                    <input type="date" id="deadline" name="deadline" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Project Files <span class="optional">(Optional)</span></label>
+                            <div class="file-upload" id="file-upload">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <div class="file-upload-text">Drag & drop files here or click to browse</div>
+                                <div class="file-upload-info">Upload relevant files (PDF, DOC, JPG, PNG - max 5MB each)</div>
+                                <input type="file" id="attachments" name="attachments" multiple>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <div class="checkbox-label">
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>, and I understand that my job posting will be reviewed before publication.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="card-footer">
+                    <a href="#" class="btn btn-outline">Save as Draft</a>
+                    <button type="submit" form="job-post-form" class="btn btn-primary btn-lg">Continue to Next Step</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TalentHub</h3>
+                    <p>Connecting businesses with top freelance talent from around the world. Find the perfect match for your project needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>For Clients</h3>
+                    <div class="footer-links">
+                        <a href="#">How to Hire</a>
+                        <a href="#">Talent Marketplace</a>
+                        <a href="#">Enterprise Solutions</a>
+                        <a href="#">Payment Protection</a>
+                        <a href="#">Success Stories</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>For Freelancers</h3>
+                    <div class="footer-links">
+                        <a href="#">How to Find Work</a>
+                        <a href="#">Create a Profile</a>
+                        <a href="#">Community Forums</a>
+                        <a href="#">Freelancer Protection</a>
+                        <a href="#">Getting Paid</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <div class="footer-links">
+                        <a href="#">Help & Support</a>
+                        <a href="#">Freelance Academy</a>
+                        <a href="#">Blog & Insights</a>
+                        <a href="#">Community Events</a>
+                        <a href="#">Affiliate Program</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 TalentHub. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // File upload interaction
+        const fileUpload = document.getElementById('file-upload');
+        const fileInput = document.getElementById('attachments');
+        
+        fileUpload.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                const fileCount = fileInput.files.length;
+                const uploadText = document.querySelector('.file-upload-text');
+                uploadText.textContent = `${fileCount} ${fileCount === 1 ? 'file' : 'files'} selected`;
+                fileUpload.style.borderColor = 'var(--primary)';
+            }
+        });
+        
+        // Skills tags functionality
+        const skillsInput = document.getElementById('skills');
+        const skillTagsContainer = document.getElementById('skill-tags');
+        const skillsList = [];
+        
+        skillsInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const skill = this.value.trim();
+                
+                if (skill && !skillsList.includes(skill)) {
+                    addSkillTag(skill);
+                }
+            }
+        });
+        
+        function addSkillTag(skill) {
+            skillsList.push(skill);
+            
+            const tagElement = document.createElement('div');}
