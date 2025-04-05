@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrustWork - AI-Powered Freelance Marketplace</title>
+  <style>
+    :root {
+      --primary: #4E6CFF;
+      --primary-light: #E5EAFF;
+      --secondary: #36D39A;
+      --dark: #1F2937;
+      --light: #F9FAFB;
+      --gray: #6B7280;
+      --light-gray: #F3F4F6;
+      --danger: #DC2626;
+      --warning: #F59E0B;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    header {
+      background-color: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .primary-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+    }
+    
+    .primary-button:hover {
+      background-color: #3D5CFF;
+    }
+    
+    .secondary-button {
+      background-color: white;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    
+    .secondary-button:hover {
+      background-color: var(--primary-light);
+    }
+    
+    .auth-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      margin-top: 2rem;
+    }
+    
+    .hero-text {
+      flex: 1;
+    }
+    
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .hero-text p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+    
+    .hero-image {
+      flex: 1;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .features {
+      margin-top: 5rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .section-title p {
+      color: var(--gray);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .ai-icon {
+      background-color: #E5EAFF;
+      color: var(--primary);
+    }
+    
+    .contract-icon {
+      background-color: #E6F6FF;
+      color: #0EA5E9;
+    }
+    
+    .security-icon {
+      background-color: #ECFDF5;
+      color: var(--secondary);
+    }
+    
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-card p {
+      color: var(--gray);
+    }
+    
+    .how-it-works {
+      margin-top: 5rem;
+      background-color: var(--primary-light);
+      padding: 4rem 0;
+    }
+    
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+    }
+    
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 24%;
+    }
+    
+    .step-number {
+      background-color: var(--primary);
+      color: white;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .step h3 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .step p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    
+    .marketplace {
+      margin-top: 5rem;
+    }
+    
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .tab {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    
+    .tab.active {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .search-bar {
+      display: flex;
+      background-color: white;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+    }
+    
+    .search-input {
+      flex: 1;
+      padding: 1rem;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+    
+    .search-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0 1.5rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    
+    .job-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .job-card {
+      background-color: white;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    
+    .job-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .job-company {
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+    }
+    
+    .job-price {
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    
+    .job-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .job-tag {
+      background-color: var(--light-gray);
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .job-description {
+      color: var(--gray);
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .job-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .job-metrics {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+    
+    .metric {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    
+    .job-apply {
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    
+    .job-apply:hover {
+      text-decoration: underline;
+    }
+    
+    .testimonials {
+      margin-top: 5rem;
+      background-color: var(--dark);
+      color: white;
+      padding: 4rem 0;
+    }
+    
+    .testimonials .section-title p {
+      color: #D1D5DB;
+    }
+    
+    .testimonials-slider {
+      margin-top: 3rem;
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      padding-bottom: 2rem;
+    }
+    
+    .testimonial-card {
+      background-color: #2D3748;
+      border-radius: 1rem;
+      padding: 2rem;
+      min-width: 350px;
+    }
+    
+    .testimonial-content {
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .author-avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    
+    .author-info h4 {
+      font-weight: 600;
+    }
+    
+    .author-info p {
+      color: #D1D5DB;
+      font-size: 0.9rem;
+    }
+    
+    .cta {
+      margin-top: 5rem;
+      text-align: center;
+    }
+    
+    .cta-content {
+      background-color: var(--primary);
+      border-radius: 1rem;
+      padding: 4rem 2rem;
+      color: white;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .cta-content p {
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    
+    .cta-primary {
+      background-color: white;
+      color: var(--primary);
+    }
+    
+    .cta-secondary {
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 4rem 0 2rem;
+      margin-top: 5rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+    }
+    
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .footer-description {
+      color: #D1D5DB;
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: #2D3748;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .footer-links h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .copyright {
+      margin-top: 4rem;
+      text-align: center;
+      color: #9CA3AF;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .steps {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .step {
+        width: 100%;
+      }
+      
+      .job-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"></path>
+          <path d="M8 7V3.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V7"></path>
+          <rect x="8" y="12" width="8" height="4" rx="1"></rect>
+        </svg>
+        TrustWork
+      </div>
+      <div class="nav-links">
+        <a href="#">Find Work</a>
+        <a href="#">Find Talent</a>
+        <a href="#">How It Works</a>
+        <a href="#">Resources</a>
+      </div>
+      <div class="auth-buttons">
+        <a href="#" class="button secondary-button">Sign In</a>
+        <a href="#" class="button primary-button">Get Started</a>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <section class="hero">
+      <div class="container hero">
+        <div class="hero-text">
+          <h1>AI-Powered Freelancing With Security Built In</h1>
+          <p>Find the perfect match for your project with AI job matching, instant legally-binding contracts, and secure payment escrow. Building trust between freelancers and clients.</p>
+          <div class="auth-buttons">
+            <a href="#" class="button primary-button">Post a Job</a>
+            <a href="#" class="button secondary-button">Find Work</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="/api/placeholder/600/400" alt="Freelancer marketplace illustration">
+        </div>
+      </div>
+    </section>
+    
+    <section class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>How TrustWork Solves Freelancing Problems</h2>
+          <p>We've built a platform that addresses the trust, fairness, and security issues that plague traditional freelancing.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon ai-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a8 8 0 0 1 8 8v12l-4-4-4 4-4-4-4 4V10a8 8 0 0 1 8-8z"></path>
+              </svg>
+            </div>
+            <h3>AI-Powered Job Matching</h3>
+            <p>Our intelligent system analyzes skills, ratings, and past work to match you with the perfect freelancer or project. Save time and find quality work relationships faster.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon contract-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                <path d="M9 9l1 0"></path>
+                <path d="M9 13l6 0"></path>
+                <path d="M9 17l6 0"></path>
+              </svg>
+            </div>
+            <h3>Instant Legally Binding Contracts</h3>
+            <p>Auto-generated agreements tailored to your project needs. Clear terms, milestone deliverables, and payment schedules to protect both parties.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon security-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Secure Payment Escrow</h3>
+            <p>Funds are held safely until work is approved. Freelancers know payment is guaranteed, and clients only pay for satisfactory results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="how-it-works">
+      <div class="container">
+        <div class="section-title">
+          <h2>How It Works</h2>
+          <p>Four simple steps to successful freelancing</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Post Your Job</h3>
+            <p>Describe your project and set your budget. Our AI will help you define clear requirements.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Get Matched</h3>
+            <p>Our AI finds the perfect talent based on skills, experience, and project history.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Secure Contract</h3>
+            <p>Auto-generated agreements protect both parties with clear terms and milestones.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Safe Payment</h3>
+            <p>Funds are held in escrow and released only when work is approved.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="marketplace">
+      <div class="container">
+        <div class="section-title">
+          <h2>Browse Marketplace</h2>
+          <p>Find your next opportunity or perfect talent</p>
+        </div>
+        <div class="tabs">
+          <div class="tab active">Projects</div>
+          <div class="tab">Freelancers</div>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search for projects or skills..." class="search-input">
+          <button class="search-button">Search</button>
+        </div>
+        <div class="job-grid">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <h3 class="job-title">Mobile App Development for Fitness Startup</h3>
+                <p class="job-company">FitTech Solutions</p>
+              </div>
+              <div class="job-price">$5,000</div>
+            </div>
+            <div class="job-tags">
+              <span class="job-tag">React Native</span>
+              <span class="job-tag">iOS</span>
+              <span class="job-tag">Android</span>
+              <span class="job-tag">UI/UX</span>
+            </div>
+            <p class="job-description">Looking for an experienced mobile developer to build a fitness tracking app. The app will include workout tracking, nutrition logging, and social features.</p>
+            <div class="job-footer">
+              <div class="job-metrics">
+                <span class="metric">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  2 weeks ago
+                </span>
+                <span class="metric">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  15 proposals
+                </span>
+              </div>
+              <a href="#" class="job-apply">Apply Now</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <h3 class="job-title">Content Writing for Tech Blog</h3>
+                <p class="job-company">TechInsights</p>
+              </div>
+              <div class="job-price">$500</div>
+            </div>
+            <div class="job-tags">
+              <span class="job-tag">Content Writing</span>
+              <span class="job-tag">SEO</span>
+              <span class="job-tag">Tech</span>
+            </div>
+            <p class="job-description">We need a skilled content writer to create 5 in-depth articles about emerging technologies. Each article should be around 2000 words and optimized for SEO.</p>
+            <div class="job-footer">
+              <div class="job-metrics">
+                <span class="metric">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  5 days ago
+                </span>
+                <span class="metric">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  28 proposals
+                </span>
+              </div>
+              <a href="#" class="job-apply">Apply Now</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <h3 class="job-title">Brand Identity Design for Restaurant</h3>
+                <p class="job-company">Flavor Fusion</p>
+              </div>
+              <div class="job-price">$2,000</div>
+            </div>
+            <div class="job-tags">
+              <span class="job-tag">Logo Design</span>
+              <span class="job-tag">Branding</span>
+              <span class="job-tag">Graphics</span>
+            </div>
+            <p class="job-description">New fusion restaurant seeking complete brand identity including logo, color palette, typography, menu design, and social media templates.</p>
+            <div class="job-footer">
+              <div class="job-metrics">
+                <span class="metric">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  1 week ago
+                </span>
+                <span class="metric">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  9 proposals
+                </span>
+              </div>
+              <a href="#" class="job-apply">Apply Now</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <h3 class="job-title">E-commerce Website Development</h3>
+                <p class="job-company">Artisan Crafts</p>
+              </div>
+              <div class="job-price">$3,500</div>
+            </div>
+            <div class="job-tags">
+              <span class="job-tag">Shopify</span>
+              <span class="job-tag">Web Development</span>
+              <span class="job-tag">E-commerce</span>
+            </div>
+            <p class="job-description">Need an expert to build a custom Shopify store for our handcrafted products. Should include custom product filtering, subscription options, and integration with our inventory system.</p>
