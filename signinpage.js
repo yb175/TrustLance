@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
       {
         email: 'vansh125khurana@gmail.com',
         password: 'vansh123'
+      },
+      {
+        email: 'bhatiayug175@gmail.com',
+        password: 'sambhavKaBff'
       }
     ];
   
