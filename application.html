@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreelanceHub - Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 0.5rem;
+        }
+
+        .breadcrumb span {
+            margin: 0 0.5rem;
+            color: #7f8c8d;
+        }
+
+        .application-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            font-size: 1.8rem;
+        }
+
+        .job-overview {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #3498db;
+        }
+
+        .job-overview h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .job-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .job-info-item {
+            display: flex;
+            flex-direction: column;
+            min-width: 150px;
+        }
+
+        .job-info-label {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            margin-bottom: 0.2rem;
+        }
+
+        .job-info-value {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .job-desc {
+            margin: 1rem 0;
+        }
+
+        .section-title {
+            margin: 1.5rem 0 1rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+        }
+
+        .application-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-input, .form-textarea, .form-select {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-helper {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            margin-top: 0.3rem;
+        }
+
+        .portfolio-section {
+            margin: 2rem 0;
+        }
+
+        .file-upload {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1.5rem;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .file-upload:hover {
+            background-color: #f5f5f5;
+        }
+
+        .file-upload-icon {
+            font-size: 2rem;
+            color: #7f8c8d;
+        }
+
+        .uploaded-files {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .uploaded-file {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #ecf0f1;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .delete-file {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .rate-section {
+            margin: 2rem 0;
+        }
+
+        .rate-type {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .rate-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rate-fields {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .currency-field {
+            position: relative;
+        }
+
+        .currency-symbol {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+        }
+
+        .currency-input {
+            padding-left: 1.5rem;
+        }
+
+        .availability-section {
+            margin: 2rem 0;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .terms {
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .terms-checkbox input {
+            margin-top: 0.3rem;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #3498db;
+            border: 1px solid #3498db;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f7f7f7;
+        }
+
+        .draft-info {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            .application-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .button-group {
+                flex-direction: column-reverse;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">FreelanceHub</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Browse Jobs</a></li>
+                <li><a href="#">My Applications</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            <span>/</span>
+            <a href="#">Browse Jobs</a>
+            <span>/</span>
+            <a href="#">Web Development</a>
+            <span>/</span>
+            <span>Full Stack Developer for E-learning Platform</span>
+        </div>
+
+        <div class="application-card">
+            <h1 class="page-title">Apply for: Full Stack Developer for E-learning Platform</h1>
+
+            <div class="job-overview">
+                <h3>Job Overview</h3>
+                <div class="job-info">
+                    <div class="job-info-item">
+                        <span class="job-info-label">Budget</span>
+                        <span class="job-info-value">$3,000 - $5,000</span>
+                    </div>
+                    <div class="job-info-item">
+                        <span class="job-info-label">Duration</span>
+                        <span class="job-info-value">2-3 months</span>
+                    </div>
+                    <div class="job-info-item">
+                        <span class="job-info-label">Experience Level</span>
+                        <span class="job-info-value">Intermediate to Expert</span>
+                    </div>
+                    <div class="job-info-item">
+                        <span class="job-info-label">Posted</span>
+                        <span class="job-info-value">3 days ago</span>
+                    </div>
+                </div>
+                <div class="job-desc">
+                    <p>We are looking for a full stack developer to help us build an interactive e-learning platform. The project involves developing both front-end interfaces and back-end functionality including user authentication, course management, and payment processing.</p>
+                </div>
+            </div>
+
+            <h3 class="section-title">Your Information</h3>
+            <form id="applicationForm">
+                <div class="application-form">
+                    <div class="form-group">
+                        <label class="form-label">First Name <span class="required">*</span></label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name <span class="required">*</span></label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email <span class="required">*</span></label>
+                        <input type="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input">
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Location <span class="required">*</span></label>
+                        <input type="text" class="form-input" placeholder="City, Country" required>
+                    </div>
+                </div>
+
+                <h3 class="section-title">Professional Details</h3>
+                <div class="application-form">
+                    <div class="form-group full-width">
+                        <label class="form-label">Professional Title <span class="required">*</span></label>
+                        <input type="text" class="form-input" placeholder="e.g. Full Stack Developer" required>
+                        <span class="form-helper">How you want to be identified to clients</span>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Years of Experience <span class="required">*</span></label>
+                        <select class="form-select" required>
+                            <option value="">Select experience level</option>
+                            <option value="0-1">Less than 1 year</option>
+                            <option value="1-3">1-3 years</option>
+                            <option value="3-5">3-5 years</option>
+                            <option value="5-7">5-7 years</option>
+                            <option value="7+">7+ years</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Skills <span class="required">*</span></label>
+                        <input type="text" class="form-input" placeholder="e.g. React, Node.js, MongoDB" required>
+                        <span class="form-helper">Add your skills separated by commas</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-section">
+                    <h3 class="section-title">Portfolio & Work Samples</h3>
+                    <div class="file-upload" id="fileUpload">
+                        <div class="file-upload-icon">+</div>
+                        <p>Drag and drop files or click to browse</p>
+                        <span class="form-helper">Max file size: 10MB (PDF, PNG, JPG, ZIP)</span>
+                        <input type="file" id="fileInput" style="display: none;" multiple>
+                    </div>
+                    <div class="uploaded-files" id="uploadedFiles">
+                        <!-- Sample uploaded file -->
+                        <div class="uploaded-file">
+                            <span>portfolio-sample.pdf</span>
+                            <button type="button" class="delete-file">&times;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-form">
+                    <div class="form-group full-width">
+                        <label class="form-label">Portfolio Website or GitHub</label>
+                        <input type="url" class="form-input" placeholder="https://">
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">LinkedIn Profile</label>
+                        <input type="url" class="form-input" placeholder="https://">
+                    </div>
+                </div>
+
+                <div class="rate-section">
+                    <h3 class="section-title">Your Rate <span class="required">*</span></h3>
+                    <div class="rate-type">
+                        <div class="rate-option">
+                            <input type="radio" name="rateType" id="hourlyRate" checked>
+                            <label for="hourlyRate">Hourly Rate</label>
+                        </div>
+                        <div class="rate-option">
+                            <input type="radio" name="rateType" id="fixedRate">
+                            <label for="fixedRate">Fixed Price</label>
+                        </div>
+                    </div>
+                    <div class="rate-fields">
+                        <div class="currency-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" class="form-input currency-input" placeholder="0" min="1" required>
+                        </div>
+                        <span>per hour</span>
+                    </div>
+                </div>
+
+                <div class="availability-section">
+                    <h3 class="section-title">Availability <span class="required">*</span></h3>
+                    <div class="form-group">
+                        <label class="form-label">When can you start?</label>
+                        <select class="form-select" required>
+                            <option value="">Select start date</option>
+                            <option value="immediate">Immediately</option>
+                            <option value="1week">In 1 week</option>
+                            <option value="2weeks">In 2 weeks</option>
+                            <option value="1month">In 1 month</option>
+                            <option value="custom">Specific date</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Hours available per week</label>
+                        <select class="form-select" required>
+                            <option value="">Select weekly availability</option>
+                            <option value="10">Less than 10 hours</option>
+                            <option value="20">10-20 hours</option>
+                            <option value="30">20-30 hours</option>
+                            <option value="40">30-40 hours</option>
+                            <option value="40+">More than 40 hours</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3 class="section-title">Cover Letter <span class="required">*</span></h3>
+                <div class="form-group">
+                    <textarea class="form-textarea" placeholder="Introduce yourself and explain why you're the best candidate for this project..." required></textarea>
+                    <span class="form-helper">Address the specific requirements of the job and highlight your relevant experience</span>
+                </div>
+
+                <div class="terms">
+                    <h4>Terms & Conditions</h4>
+                    <p>By submitting your application, you agree to our Terms of Service and Privacy Policy. You certify that all information provided is accurate and complete.</p>
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="termsAgree" required>
+                        <label for="termsAgree">I agree to the Terms of Service and Privacy Policy</label>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary">Save as Draft</button>
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                </div>
+                <p class="draft-info">Your draft is automatically saved every 30 seconds</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // File upload handling
+            var fileUpload = document.getElementById('fileUpload');
+            var fileInput = document.getElementById('fileInput');
+            var uploadedFiles = document.getElementById('uploadedFiles');
+            
+            fileUpload.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            fileInput.addEventListener('change', function() {
+                for (var i = 0; i < this.files.length; i++) {
+                    var file = this.files[i];
+                    addFileElement(file.name);
+                }
+            });
+            
+            function addFileElement(fileName) {
+                var fileDiv = document.createElement('div');
+                fileDiv.className = 'uploaded-file';
+                
+                var nameSpan = document.createElement('span');
+                nameSpan.textContent = fileName;
+                
+                var deleteBtn = document.createElement('button');
+                deleteBtn.className = 'delete-file';
+                deleteBtn.textContent = '×';
+                deleteBtn.type = 'button';
+                
+                deleteBtn.addEventListener('click', function() {
+                    uploadedFiles.removeChild(fileDiv);
+                });
+                
+                fileDiv.appendChild(nameSpan);
+                fileDiv.appendChild(deleteBtn);
+                uploadedFiles.appendChild(fileDiv);
+            }
+            
+            // Form submission
+            var applicationForm = document.getElementById('applicationForm');
+            
+            applicationForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Validate form
+                if (applicationForm.checkValidity()) {
+                    alert('Your application has been submitted successfully!');
+                    window.location.href = '#'; // Redirect to application tracking page
+                } else {
+                    alert('Please fill out all required fields.');
+                }
+            });
+            
+            // Handle rate type change
+            var hourlyRate = document.getElementById('hourlyRate');
+            var fixedRate = document.getElementById('fixedRate');
+            
+            hourlyRate.addEventListener('change', function() {
+                if (this.checked) {
+                    document.querySelector('.rate-fields span').textContent = 'per hour';
+                }
+            });
+            
+            fixedRate.addEventListener('change', function() {
+                if (this.checked) {
+                    document.querySelector('.rate-fields span').textContent = 'fixed price';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

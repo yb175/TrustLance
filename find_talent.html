@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreelanceHub - Find Your Next Project</title>
+    <link rel="stylesheet" href="find_talent.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">TrustLance</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Browse Jobs</a></li>
+                <li><a href="#">My Applications</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="search-section">
+            <h2 class="search-title">Find Your Next Project</h2>
+            <div class="search-form">
+                <input type="text" placeholder="Search for jobs..." class="search-input">
+                <button class="search-button">Search</button>
+            </div>
+            <div class="filters">
+                <select class="filter-select">
+                    <option>All Categories</option>
+                    <option>Web Development</option>
+                    <option>Mobile Development</option>
+                    <option>Design</option>
+                    <option>Writing</option>
+                    <option>Marketing</option>
+                </select>
+                <select class="filter-select">
+                    <option>Budget Range</option>
+                    <option>Under $500</option>
+                    <option>$500 - $1,000</option>
+                    <option>$1,000 - $5,000</option>
+                    <option>$5,000+</option>
+                </select>
+                <select class="filter-select">
+                    <option>Project Duration</option>
+                    <option>Less than 1 week</option>
+                    <option>1-4 weeks</option>
+                    <option>1-3 months</option>
+                    <option>3+ months</option>
+                </select>
+            </div>
+        </section>
+
+        <div class="tabs">
+            <div class="tab active">Available Jobs</div>
+            <div class="tab">Applied Jobs</div>
+            <div class="tab">Saved Jobs</div>
+        </div>
+
+        <div class="job-list">
+            <!-- Job Card 1 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Website Redesign Project</h3>
+                        <p class="company-name">TechSolutions Inc.</p>
+                    </div>
+                    <div class="job-budget">$1,500 - $3,000</div>
+                </div>
+                <div class="job-details">
+                    <div class="job-duration">Duration: 2-4 weeks</div>
+                    <p>Looking for an experienced web developer to redesign our company website with modern design principles and improved user experience.</p>
+                </div>
+                <div class="job-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">Responsive Design</span>
+                </div>
+                <div class="job-footer">
+                    <div class="job-posted">Posted 2 days ago · 8 applications</div>
+                    <button class="apply-btn" onclick="openApplicationModal('Website Redesign Project')">Apply Now</button>
+                </div>
+            </div>
+
+            <!-- Job Card 2 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">E-commerce Mobile App Development</h3>
+                        <p class="company-name">ShopNow</p>
+                    </div>
+                    <div class="job-budget">$4,000 - $6,000</div>
+                </div>
+                <div class="job-details">
+                    <div class="job-duration">Duration: 1-2 months</div>
+                    <p>We need a mobile app developer to create a full-featured e-commerce application for iOS and Android platforms.</p>
+                </div>
+                <div class="job-tags">
+                    <span class="tag">React Native</span>
+                    <span class="tag">Firebase</span>
+                    <span class="tag">Payment Integration</span>
+                </div>
+                <div class="job-footer">
+                    <div class="job-posted">Posted 5 days ago · 15 applications</div>
+                    <button class="apply-btn" onclick="openApplicationModal('E-commerce Mobile App Development')">Apply Now</button>
+                </div>
+            </div>
+
+            <!-- Job Card 3 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Content Writing for Tech Blog</h3>
+                        <p class="company-name">Digital Insights</p>
+                    </div>
+                    <div class="job-budget">$30 - $50 per article</div>
+                </div>
+                <div class="job-details">
+                    <div class="job-duration">Duration: Ongoing</div>
+                    <p>Seeking a tech-savvy writer to create engaging articles on emerging technologies, software development trends, and digital transformation.</p>
+                </div>
+                <div class="job-tags">
+                    <span class="tag">Technical Writing</span>
+                    <span class="tag">SEO</span>
+                    <span class="tag">Research</span>
+                </div>
+                <div class="job-footer">
+                    <div class="job-posted">Posted 1 week ago · 25 applications</div>
+                    <button class="apply-btn" onclick="openApplicationModal('Content Writing for Tech Blog')">Apply Now</button>
+                </div>
+            </div>
+
+            <!-- Job Card 4 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Logo and Brand Identity Design</h3>
+                        <p class="company-name">StartupVision</p>
+                    </div>
+                    <div class="job-budget">$800 - $1,200</div>
+                </div>
+                <div class="job-details">
+                    <div class="job-duration">Duration: 1-2 weeks</div>
+                    <p>Looking for a graphic designer to create a memorable logo and brand identity for our tech startup. Must include logo variations, color palette, and basic brand guidelines.</p>
+                </div>
+                <div class="job-tags">
+                    <span class="tag">Logo Design</span>
+                    <span class="tag">Branding</span>
+                    <span class="tag">Illustrator</span>
+                </div>
+                <div class="job-footer">
+                    <div class="job-posted">Posted 3 days ago · 12 applications</div>
+                    <button class="apply-btn" onclick="openApplicationModal('Logo and Brand Identity Design')">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="application-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalJobTitle">Apply for Job</h2>
+                <button class="close-btn" onclick="closeApplicationModal()">&times;</button>
+            </div>
+            <form class="application-form">
+                <div class="form-group">
+                    <label class="form-label">Cover Letter</label>
+                    <textarea class="form-textarea" placeholder="Introduce yourself and explain why you're a good fit for this job..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Proposed Rate</label>
+                    <input type="text" class="form-input" placeholder="Your rate (e.g. $25/hour or $2000 fixed)">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Expected Timeline</label>
+                    <input type="text" class="form-input" placeholder="How long will this project take you?">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Attach Portfolio/Samples</label>
+                    <input type="file" class="form-input">
+                </div>
+                <button type="button" class="submit-btn" onclick="submitApplication()">Submit Application</button>
+            </form>
+        </div>
+    </div>

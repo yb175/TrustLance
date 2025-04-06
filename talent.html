@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustLance - Find Talent</title>
+    <link rel="stylesheet" href="talent.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">TrustLance</a>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#" class="active">Find Talent</a>
+                    <a href="#">Post a Job</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Sign In</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Find Exceptional Freelance Talent</h1>
+            <p>Connect with skilled professionals ready to bring your projects to life</p>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search skills, expertise or job titles...">
+                    <button>Search</button>
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-item">
+                        <select>
+                            <option>All Categories</option>
+                            <option>Web Development</option>
+                            <option>Design & Creative</option>
+                            <option>Writing</option>
+                            <option>Sales & Marketing</option>
+                            <option>Admin Support</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <select>
+                            <option>Experience Level</option>
+                            <option>Entry Level</option>
+                            <option>Intermediate</option>
+                            <option>Expert</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <select>
+                            <option>Hourly Rate</option>
+                            <option>$10 - $30</option>
+                            <option>$30 - $60</option>
+                            <option>$60+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <select>
+                            <option>Rating</option>
+                            <option>4+ Stars</option>
+                            <option>3+ Stars</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="talent-section">
+        <div class="container">
+            <h2>Top Freelancers</h2>
+            
+            <div class="talent-grid">
+                <!-- Talent Card 1 -->
+                <div class="talent-card">
+                    <div class="talent-card-header">
+                        <img src="/api/placeholder/100/100" alt="Alex Johnson" class="talent-avatar">
+                        <h3 class="talent-name">Alex Johnson</h3>
+                        <p class="talent-title">Full Stack Developer</p>
+                    </div>
+                    
+                    <div class="talent-card-body">
+                        <div class="talent-rating">
+                            <span>★★★★★</span>
+                            <p>5.0 (48 reviews)</p>
+                        </div>
+                        
+                        <div class="talent-skills">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">TypeScript</span>
+                        </div>
+                        
+                        <p>"I build scalable web applications with modern technologies. 6+ years experience in full stack development."</p>
+                    </div>
+                    
+                    <div class="talent-card-footer">
+                        <div class="talent-rate">$65/hr</div>
+                        <button class="talent-contact">Contact</button>
+                    </div>
+                </div>
+                
+                <!-- Talent Card 2 -->
+                <div class="talent-card">
+                    <div class="talent-card-header">
+                        <img src="/api/placeholder/100/100" alt="Sarah Miller" class="talent-avatar">
+                        <h3 class="talent-name">Sarah Miller</h3>
+                        <p class="talent-title">UI/UX Designer</p>
+                    </div>
+                    
+                    <div class="talent-card-body">
+                        <div class="talent-rating">
+                            <span>★★★★★</span>
+                            <p>4.9 (37 reviews)</p>
+                        </div>
+                        
+                        <div class="talent-skills">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Adobe XD</span>
+                            <span class="skill-tag">Prototyping</span>
+                            <span class="skill-tag">UI Design</span>
+                        </div>
+                        
+                        <p>"Transforming complex problems into intuitive digital experiences. Specializing in SaaS and mobile app designs."</p>
+                    </div>
+                    
+                    <div class="talent-card-footer">
+                        <div class="talent-rate">$75/hr</div>
+                        <button class="talent-contact">Contact</button>
+                    </div>
+                </div>
+                
+                <!-- Talent Card 3 -->
+                <div class="talent-card">
+                    <div class="talent-card-header">
+                        <img src="/api/placeholder/100/100" alt="David Chen" class="talent-avatar">
+                        <h3 class="talent-name">David Chen</h3>
+                        <p class="talent-title">Data Scientist</p>
+                    </div>
+                    
+                    <div class="talent-card-body">
+                        <div class="talent-rating">
+                            <span>★★★★☆</span>
+                            <p>4.8 (23 reviews)</p>
+                        </div>
+                        
+                        <div class="talent-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Visualization</span>
+                        </div>
+                        
+                        <p>"Extracting insights from data to drive business decisions. Expert in predictive modeling and big data analytics."</p>
+                    </div>
+                    
+                    <div class="talent-card-footer">
+                        <div class="talent-rate">$85/hr</div>
+                        <button class="talent-contact">Contact</button>
+                    </div>
+                </div>
+                
+                <!-- Talent Card 4 -->
+                <div class="talent-card">
+                    <div class="talent-card-header">
+                        <img src="/api/placeholder/100/100" alt="Emma Wilson" class="talent-avatar">
+                        <h3 class="talent-name">Emma Wilson</h3>
+                        <p class="talent-title">Content Writer</p>
+                    </div>
+                    
+                    <div class="talent-card-body">
+                        <div class="talent-rating">
+                            <span>★★★★★</span>
+                            <p>5.0 (42 reviews)</p>
+                        </div>
+                        
+                        <div class="talent-skills">
+                            <span class="skill-tag">Blog Writing</span>
+                            <span class="skill-tag">SEO</span>
+                            <span class="skill-tag">Copywriting</span>
+                            <span class="skill-tag">Technical Writing</span>
+                        </div>
+                        
+                        <p>"Crafting compelling content that connects with audiences. Specialized in tech, SaaS, and digital marketing."</p>
+                    </div>
+                    
+                    <div class="talent-card-footer">
+                        <div class="talent-rate">$45/hr</div>
+                        <button class="talent-contact">Contact</button>
+                    </div>
+                </div>
+                
+                <!-- Talent Card 5 -->
+                <div class="talent-card">
+                    <div class="talent-card-header">
+                        <img src="/api/placeholder/100/100" alt="Michael Brown" class="talent-avatar">
+                        <h3 class="talent-name">Michael Brown</h3>
+                        <p class="talent-title">Mobile App Developer</p>
+                    </div>
+                    
+                    <div class="talent-card-body">
+                        <div class="talent-rating">
+                            <span>★★★★☆</span>
+                            <p>4.7 (31 reviews)</p>
+                        </div>
+                        
+                        <div class="talent-skills">
+                            <span class="skill-tag">iOS</span>
+                            <span class="skill-tag">Android</span>
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">React Native</span>
+                        </div>
+                        
+                        <p>"Creating exceptional mobile experiences. Expertise in cross-platform development and native applications."</p>
+                    </div>
+                    
+                    <div class="talent-card-footer">
+                        <div class="talent-rate">$70/hr</div>
+                        <button class="talent-contact">Contact</button>
+                    </div>
+                </div>
+                
+                <!-- Talent Card 6 -->
+                <div class="talent-card">
+                    <div class="talent-card-header">
+                        <img src="/api/placeholder/100/100" alt="Olivia Garcia" class="talent-avatar">
+                        <h3 class="talent-name">Olivia Garcia</h3>
+                        <p class="talent-title">Digital Marketer</p>
+                    </div>
+                    
+                    <div class="talent-card-body">
+                        <div class="talent-rating">
+                            <span>★★★★☆</span>
+                            <p>4.9 (28 reviews)</p>
+                        </div>
+                        
+                        <div class="talent-skills">
+                            <span class="skill-tag">PPC</span>
+                            <span class="skill-tag">Social Media</span>
+                            <span class="skill-tag">Email Marketing</span>
+                            <span class="skill-tag">Analytics</span>
+                        </div>
+                        
+                        <p>"Results-driven marketer specializing in customer acquisition and retention strategies that grow businesses."</p>
+                    </div>
+                    
+                    <div class="talent-card-footer">
+                        <div class="talent-rate">$55/hr</div>
+                        <button class="talent-contact">Contact</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <div class="page-btn active">1</div>
+                <div class="page-btn">2</div>
+                <div class="page-btn">3</div>
+                <div class="page-btn">4</div>
+                <div class="page-btn">5</div>
+                <div class="page-btn">→</div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About TrustLance</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">How it Works</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>For Clients</h3>
+                    <ul>
+                        <li><a href="#">Find Talent</a></li>
+                        <li><a href="#">Post a Job</a></li>
+                        <li><a href="#">Client Success Stories</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>For Freelancers</h3>
+                    <ul>
+                        <li><a href="#">Find Work</a></li>
+                        <li><a href="#">Create Profile</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 TrustLance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
