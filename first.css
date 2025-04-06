@@ -591,7 +591,17 @@ footer {
   color: #9CA3AF;
   font-size: 0.9rem;
 }
-
+.profile button{
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: rgb(15, 133, 250);
+  border: none;
+  transform: translateY(-40%);
+  font-size: 2rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
