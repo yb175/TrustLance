@@ -595,145 +595,85 @@
     </div>
 
     <script>
-// script.js
+        document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("applicationForm");
+        const fileInput = document.getElementById("fileInput");
+        const fileUploadBtn = document.getElementById("fileUpload");
+        const uploadedFilesDiv = document.getElementById("uploadedFiles");
 
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("applicationForm");
-    const fileUpload = document.getElementById("fileUpload");
-    const fileInput = document.getElementById("fileInput");
-    const uploadedFilesContainer = document.getElementById("uploadedFiles");
-
-    const RATE_KEY = "rateType";
-    const DRAFT_KEY = "jobApplicationDraft";
-    const FILES_KEY = "uploadedFiles";
-
-    // Trigger file input on file area click
-    fileUpload.addEventListener("click", () => fileInput.click());
-
-    // Handle file uploads
-    fileInput.addEventListener("change", (e) => {
-        const files = Array.from(e.target.files);
-        let storedFiles = getStoredFiles();
-
-        files.forEach(file => {
-            if (file.size > 10 * 1024 * 1024) {
-                alert(`${file.name} exceeds 10MB.`);
-                return;
-            }
-
-            storedFiles.push(file.name); // Store filename only
+        // File upload logic
+        fileUploadBtn.addEventListener("click", function () {
+            fileInput.click();
         });
 
-        saveFilesToStorage(storedFiles);
-        renderUploadedFiles(storedFiles);
-        fileInput.value = "";
-    });
-
-    // Save draft manually
-    document.querySelector(".btn-secondary").addEventListener("click", () => {
-        saveFormToLocalStorage();
-        alert("Draft saved!");
-    });
-
-    // Auto save every 30 seconds
-    setInterval(() => {
-        saveFormToLocalStorage();
-    }, 30000);
-
-    // Save form data to localStorage
-    function saveFormToLocalStorage() {
-        const data = {};
-        const inputs = form.querySelectorAll("input, select, textarea");
-
-        inputs.forEach(el => {
-            if (el.type === "radio" && !el.checked) return;
-            if (el.type === "checkbox") {
-                data[el.id] = el.checked;
-            } else {
-                data[el.name || el.id] = el.value;
-            }
-        });
-
-        localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
-    }
-
-    // Load form data from localStorage
-    function loadFormFromLocalStorage() {
-        const data = JSON.parse(localStorage.getItem(DRAFT_KEY));
-        if (!data) return;
-
-        const inputs = form.querySelectorAll("input, select, textarea");
-
-        inputs.forEach(el => {
-            const key = el.name || el.id;
-            if (data[key] !== undefined) {
-                if (el.type === "radio") {
-                    el.checked = (el.value === data[key]);
-                } else if (el.type === "checkbox") {
-                    el.checked = data[key];
-                } else {
-                    el.value = data[key];
+        fileInput.addEventListener("change", function () {
+            for (let i = 0; i < fileInput.files.length; i++) {
+                const file = fileInput.files[i];
+                const fileSizeMB = file.size / (1024 * 1024);
+                if (fileSizeMB > 10) {
+                    alert(`File "${file.name}" exceeds 10MB limit.`);
+                    continue;
                 }
+
+                const div = document.createElement("div");
+                div.className = "uploaded-file";
+
+                const span = document.createElement("span");
+                span.textContent = `${file.name} (${fileSizeMB.toFixed(2)} MB)`;
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.type = "button";
+                deleteBtn.className = "delete-file";
+                deleteBtn.innerHTML = "&times;";
+                deleteBtn.addEventListener("click", function () {
+                    div.remove();
+                });
+
+                div.appendChild(span);
+                div.appendChild(deleteBtn);
+                uploadedFilesDiv.appendChild(div);
             }
         });
-    }
 
-    // Submit form
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        if (!form.checkValidity()) {
-            alert("Please fill all required fields.");
-            return;
-        }
+        // Form submit logic
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
 
-        alert("Application submitted successfully!");
-
-        // Clear storage
-        localStorage.removeItem(DRAFT_KEY);
-        localStorage.removeItem(FILES_KEY);
-        form.reset();
-        uploadedFilesContainer.innerHTML = "";
-    });
-
-    // --- File rendering ---
-    function saveFilesToStorage(files) {
-        localStorage.setItem(FILES_KEY, JSON.stringify(files));
-    }
-
-    function getStoredFiles() {
-        return JSON.parse(localStorage.getItem(FILES_KEY)) || [];
-    }
-
-    function renderUploadedFiles(files) {
-        uploadedFilesContainer.innerHTML = "";
-        files.forEach(file => {
-            const fileDiv = document.createElement("div");
-            fileDiv.classList.add("uploaded-file");
-
-            const fileName = document.createElement("span");
-            fileName.textContent = file;
-
-            const deleteBtn = document.createElement("button");
-            deleteBtn.type = "button";
-            deleteBtn.classList.add("delete-file");
-            deleteBtn.innerHTML = "&times;";
-
-            deleteBtn.addEventListener("click", () => {
-                const updatedFiles = getStoredFiles().filter(f => f !== file);
-                saveFilesToStorage(updatedFiles);
-                renderUploadedFiles(updatedFiles);
+            // Collect form values
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
             });
 
-            fileDiv.appendChild(fileName);
-            fileDiv.appendChild(deleteBtn);
-            uploadedFilesContainer.appendChild(fileDiv);
-        });
-    }
+            // Collect selected rate value
+            const rateType = document.querySelector('input[name="rateType"]:checked').id;
+            const rateValue = document.querySelector(".currency-input").value;
+            data["rateType"] = rateType;
+            data["rateValue"] = rateValue;
 
-    // Load everything on page load
-    loadFormFromLocalStorage();
-    renderUploadedFiles(getStoredFiles());
-});
+            // Collect uploaded files (names only for now)
+            const uploaded = [];
+            document.querySelectorAll(".uploaded-file span").forEach((el) => {
+                uploaded.push(el.textContent);
+            });
+            data["uploadedFiles"] = uploaded;
+
+            console.log("Submitted Data:", data);
+
+            // Show success message
+            alert("Application submitted successfully!");
+        });
+    });
 </script>
+
 </body>
 </html>
