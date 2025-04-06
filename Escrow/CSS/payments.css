@@ -1,0 +1,125 @@
+/* Payments Specific Styles */
+.payments-content {
+    padding: 1.5rem;
+}
+
+.payments-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .payments-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .filters {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.search-filter input {
+    width: 100%;
+    max-width: 300px;
+}
+
+.status-filter select {
+    width: 180px;
+}
+
+/* Payments Table */
+.payments-table-container {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.payments-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payments-table th,
+.payments-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.875rem;
+}
+
+.payments-table th {
+    background-color: var(--secondary-color);
+    font-weight: 500;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.payments-table td {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.payments-table tr:last-child td {
+    border-bottom: none;
+}
+
+.actions-column {
+    text-align: right;
+}
+
+.payment-id {
+    font-family: monospace;
+    font-size: 0.75rem;
+}
+
+.payment-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-md);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.payment-status.pending {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--warning-color);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.payment-status.in-escrow {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--info-color);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.payment-status.completed {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success-color);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.payment-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.empty-state {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: var(--text-muted);
+}

@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
       if (matchedUser) {
         alert('✅ Login successful! Redirecting...');
-        window.location.href = './first.html'; // Change this if your dashboard file name differs
+        window.location.href = './login.html'; // Change this if your dashboard file name differs
       } else {
         alert('❌ Invalid email or password. Please try again.');
         passwordInput.value = '';

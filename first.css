@@ -602,7 +602,16 @@ transition:  0.2s
     color: #9CA3AF;
     font-size: 0.9rem;
   }
-  
+  .profile button{
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    right: 10vh;
+    transform: translateY(-80%);
+    position: absolute;
+  }
   @media (max-width: 768px) {
     .hero {
       flex-direction: column;
