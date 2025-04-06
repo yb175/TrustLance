@@ -31,7 +31,10 @@
     top: 0;
     z-index: 10;
     height: 18vh;
+<<<<<<< HEAD
     padding: 2vh;
+=======
+>>>>>>> 390ddd228d92e8579407cb8ddb4288945ba7db18
   }
   
   .container {
@@ -53,13 +56,21 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+<<<<<<< HEAD
     transform: translateX(-100px) translateY(-25px);
+=======
+    transform: translateX(-80px) translateY(-30px);
+>>>>>>> 390ddd228d92e8579407cb8ddb4288945ba7db18
   }
   
   .nav-links {
     display: flex;
     gap: 2rem;
+<<<<<<< HEAD
     transform: translateY(-25px);
+=======
+    transform: translateY(-30px);
+>>>>>>> 390ddd228d92e8579407cb8ddb4288945ba7db18
   }
   .nav-links a {
     text-decoration: none;
@@ -94,6 +105,7 @@ transition:  0.2s
     transition: all 0.2s ease;
     text-decoration: none;
     display: inline-block;
+<<<<<<< HEAD
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
@@ -101,6 +113,8 @@ transition:  0.2s
     font-size: 16px;
     transition: transform 0.2s, box-shadow 0.2 ;
     transform: translateY(-25px) translateX(100px);
+=======
+>>>>>>> 390ddd228d92e8579407cb8ddb4288945ba7db18
     
   }
   
@@ -128,6 +142,7 @@ transition:  0.2s
   .auth-buttons {
     display: flex;
     gap: 1rem;
+    transform: translateX(80px) translateY(-28px);
   }
   
   .hero {
