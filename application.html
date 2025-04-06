@@ -595,75 +595,145 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // File upload handling
-            var fileUpload = document.getElementById('fileUpload');
-            var fileInput = document.getElementById('fileInput');
-            var uploadedFiles = document.getElementById('uploadedFiles');
-            
-            fileUpload.addEventListener('click', function() {
-                fileInput.click();
-            });
-            
-            fileInput.addEventListener('change', function() {
-                for (var i = 0; i < this.files.length; i++) {
-                    var file = this.files[i];
-                    addFileElement(file.name);
-                }
-            });
-            
-            function addFileElement(fileName) {
-                var fileDiv = document.createElement('div');
-                fileDiv.className = 'uploaded-file';
-                
-                var nameSpan = document.createElement('span');
-                nameSpan.textContent = fileName;
-                
-                var deleteBtn = document.createElement('button');
-                deleteBtn.className = 'delete-file';
-                deleteBtn.textContent = '×';
-                deleteBtn.type = 'button';
-                
-                deleteBtn.addEventListener('click', function() {
-                    uploadedFiles.removeChild(fileDiv);
-                });
-                
-                fileDiv.appendChild(nameSpan);
-                fileDiv.appendChild(deleteBtn);
-                uploadedFiles.appendChild(fileDiv);
+// script.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("applicationForm");
+    const fileUpload = document.getElementById("fileUpload");
+    const fileInput = document.getElementById("fileInput");
+    const uploadedFilesContainer = document.getElementById("uploadedFiles");
+
+    const RATE_KEY = "rateType";
+    const DRAFT_KEY = "jobApplicationDraft";
+    const FILES_KEY = "uploadedFiles";
+
+    // Trigger file input on file area click
+    fileUpload.addEventListener("click", () => fileInput.click());
+
+    // Handle file uploads
+    fileInput.addEventListener("change", (e) => {
+        const files = Array.from(e.target.files);
+        let storedFiles = getStoredFiles();
+
+        files.forEach(file => {
+            if (file.size > 10 * 1024 * 1024) {
+                alert(`${file.name} exceeds 10MB.`);
+                return;
             }
-            
-            // Form submission
-            var applicationForm = document.getElementById('applicationForm');
-            
-            applicationForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                
-                // Validate form
-                if (applicationForm.checkValidity()) {
-                    alert('Your application has been submitted successfully!');
-                    window.location.href = '#'; // Redirect to application tracking page
-                } else {
-                    alert('Please fill out all required fields.');
-                }
-            });
-            
-            // Handle rate type change
-            var hourlyRate = document.getElementById('hourlyRate');
-            var fixedRate = document.getElementById('fixedRate');
-            
-            hourlyRate.addEventListener('change', function() {
-                if (this.checked) {
-                    document.querySelector('.rate-fields span').textContent = 'per hour';
-                }
-            });
-            
-            fixedRate.addEventListener('change', function() {
-                if (this.checked) {
-                    document.querySelector('.rate-fields span').textContent = 'fixed price';
-                }
-            });
+
+            storedFiles.push(file.name); // Store filename only
         });
-    </script>
+
+        saveFilesToStorage(storedFiles);
+        renderUploadedFiles(storedFiles);
+        fileInput.value = "";
+    });
+
+    // Save draft manually
+    document.querySelector(".btn-secondary").addEventListener("click", () => {
+        saveFormToLocalStorage();
+        alert("Draft saved!");
+    });
+
+    // Auto save every 30 seconds
+    setInterval(() => {
+        saveFormToLocalStorage();
+    }, 30000);
+
+    // Save form data to localStorage
+    function saveFormToLocalStorage() {
+        const data = {};
+        const inputs = form.querySelectorAll("input, select, textarea");
+
+        inputs.forEach(el => {
+            if (el.type === "radio" && !el.checked) return;
+            if (el.type === "checkbox") {
+                data[el.id] = el.checked;
+            } else {
+                data[el.name || el.id] = el.value;
+            }
+        });
+
+        localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+    }
+
+    // Load form data from localStorage
+    function loadFormFromLocalStorage() {
+        const data = JSON.parse(localStorage.getItem(DRAFT_KEY));
+        if (!data) return;
+
+        const inputs = form.querySelectorAll("input, select, textarea");
+
+        inputs.forEach(el => {
+            const key = el.name || el.id;
+            if (data[key] !== undefined) {
+                if (el.type === "radio") {
+                    el.checked = (el.value === data[key]);
+                } else if (el.type === "checkbox") {
+                    el.checked = data[key];
+                } else {
+                    el.value = data[key];
+                }
+            }
+        });
+    }
+
+    // Submit form
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!form.checkValidity()) {
+            alert("Please fill all required fields.");
+            return;
+        }
+
+        alert("Application submitted successfully!");
+
+        // Clear storage
+        localStorage.removeItem(DRAFT_KEY);
+        localStorage.removeItem(FILES_KEY);
+        form.reset();
+        uploadedFilesContainer.innerHTML = "";
+    });
+
+    // --- File rendering ---
+    function saveFilesToStorage(files) {
+        localStorage.setItem(FILES_KEY, JSON.stringify(files));
+    }
+
+    function getStoredFiles() {
+        return JSON.parse(localStorage.getItem(FILES_KEY)) || [];
+    }
+
+    function renderUploadedFiles(files) {
+        uploadedFilesContainer.innerHTML = "";
+        files.forEach(file => {
+            const fileDiv = document.createElement("div");
+            fileDiv.classList.add("uploaded-file");
+
+            const fileName = document.createElement("span");
+            fileName.textContent = file;
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.type = "button";
+            deleteBtn.classList.add("delete-file");
+            deleteBtn.innerHTML = "&times;";
+
+            deleteBtn.addEventListener("click", () => {
+                const updatedFiles = getStoredFiles().filter(f => f !== file);
+                saveFilesToStorage(updatedFiles);
+                renderUploadedFiles(updatedFiles);
+            });
+
+            fileDiv.appendChild(fileName);
+            fileDiv.appendChild(deleteBtn);
+            uploadedFilesContainer.appendChild(fileDiv);
+        });
+    }
+
+    // Load everything on page load
+    loadFormFromLocalStorage();
+    renderUploadedFiles(getStoredFiles());
+});
+</script>
 </body>
 </html>
