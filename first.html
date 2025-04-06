@@ -3,254 +3,270 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trust Lance - AI-Powered Freelance Marketplace</title>
-    <link rel="stylesheet" href="first.css">
+  <title>TrustLance - Application Filtering</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <header>
-    <div class="container header-content">
+    <div class="container">
       <div class="logo">
-        <img src="./images/logo.png" alt="logo">
-        TrustLance
-      </div>
-      <div class="nav-links">
-        <a href="./find_talent.html">Find Work</a>
-        <a href="./Find_work.html">Find Talent</a>
-        <a href="#" onclick="scrollToSection()">How It Works</a>
-        <a href="#">Resources</a>
-      </div>
-      <div class="auth-buttons">
-        <a href="./signinpage.html" class="button secondary-button">Sign In</a>
-        <a href="./Signuppage.html" class="button primary-button">Get Started</a>
+        <h1>TrustLance<span>AI</span></h1>
+        <p>Smart Application Filtering</p>
       </div>
     </div>
   </header>
-  
+
   <main>
-    <section class="hero">
-      <div class="container hero">
-        <div class="hero-text">
-          <h1>AI-Powered Freelancing With Security Built In</h1>
-          <p>Find the perfect match for your project with AI job matching, instant legally-binding contracts, and secure payment escrow. Building trust between freelancers and clients.</p>
-          <div class="auth-buttons">
-            <a href="./Find_work.html" class="button primary-button">Post a Job</a>
-            <a href="./find_talent.html" class="button secondary-button">Find Work</a>
+    <div class="container">
+      <section class="project-details">
+        <h2>Website Redesign Project</h2>
+        <div class="project-info">
+          <div class="project-meta">
+            <span><i class="fas fa-tag"></i> Web Development</span>
+            <span><i class="fas fa-dollar-sign"></i> $2,500</span>
+            <span><i class="far fa-clock"></i> 4 weeks</span>
           </div>
-        </div>
-        <div class="hero-image">
-          <img src="./images/freelancer.png" alt="Freelancer marketplace illustration">
-        </div>
-      </div>
-    </section>
-    
-    <section class="features">
-      <div class="container">
-        <div class="section-title">
-          <h2>How TrustWork Solves Freelancing Problems</h2>
-          <p>We've built a platform that addresses the trust, fairness, and security issues that plague traditional freelancing.</p>
-        </div>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon ai-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a8 8 0 0 1 8 8v12l-4-4-4 4-4-4-4 4V10a8 8 0 0 1 8-8z"></path>
-              </svg>
+          <p class="description">
+            Looking for an experienced web developer to redesign our e-commerce platform with modern UI and improved user experience.
+          </p>
+          <div class="skills-required">
+            <h3>Skills Required:</h3>
+            <div class="skills-container">
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">UI/UX</span>
             </div>
-            <h3>AI-Powered Job Matching</h3>
-            <p>Our intelligent system analyzes skills, ratings, and past work to match you with the perfect freelancer or project. Save time and find quality work relationships faster.</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon contract-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
-                <path d="M9 9l1 0"></path>
-                <path d="M9 13l6 0"></path>
-                <path d="M9 17l6 0"></path>
-              </svg>
+        </div>
+      </section>
+
+      <section class="applications">
+        <h2>Freelancer Applications</h2>
+        <div class="ai-stats">
+          <div class="ai-stat">
+            <span class="stat-number">12</span>
+            <span class="stat-label">Total Applications</span>
+          </div>
+          <div class="ai-stat">
+            <span class="stat-number">5</span>
+            <span class="stat-label">AI Recommended</span>
+          </div>
+          <div class="ai-stat">
+            <span class="stat-number">7</span>
+            <span class="stat-label">Filtered Out</span>
+          </div>
+        </div>
+        
+        <div class="ai-filter-explanation">
+          <h3><i class="fas fa-robot"></i> How AI Filters Applications</h3>
+          <p>Our AI analyzes applications based on these factors:</p>
+          <div class="filter-factors">
+            <div class="factor">
+              <i class="fas fa-code"></i>
+              <span>Skills Match</span>
             </div>
-            <h3>Instant Legally Binding Contracts</h3>
-            <p>Auto-generated agreements tailored to your project needs. Clear terms, milestone deliverables, and payment schedules to protect both parties.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon security-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
+            <div class="factor">
+              <i class="fas fa-briefcase"></i>
+              <span>Experience</span>
             </div>
-            <h3>Secure Payment Escrow</h3>
-            <p>Funds are held safely until work is approved. Freelancers know payment is guaranteed, and clients only pay for satisfactory results.</p>
+            <div class="factor">
+              <i class="fas fa-history"></i>
+              <span>Project History</span>
+            </div>
+            <div class="factor">
+              <i class="fas fa-graduation-cap"></i>
+              <span>Education</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    
-    <section id="section2" class="how-it-works">
-      <div class="container">
-        <div class="section-title">
-          <h2>How It Works</h2>
-          <p>Four simple steps to successful freelancing</p>
-        </div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h3>Post Your Job</h3>
-            <p>Describe your project and set your budget. Our AI will help you define clear requirements.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <h3>Get Matched</h3>
-            <p>Our AI finds the perfect talent based on skills, experience, and project history.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <h3>Secure Contract</h3>
-            <p>Auto-generated agreements protect both parties with clear terms and milestones.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">4</div>
-            <h3>Safe Payment</h3>
-            <p>Funds are held in escrow and released only when work is approved.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="marketplace">
-      <div class="container">
-        <div class="section-title">
-          <h2>Browse Marketplace</h2>
-          <p>Find your next opportunity or perfect talent</p>
-        </div>
-        <div class="tabs">
-          <div class="tab active">Projects</div>
-          <div class="tab">Freelancers</div>
-        </div>
-        <div class="search-bar">
-          <input type="text" placeholder="Search for projects or skills..." class="search-input">
-          <button class="search-button">Search</button>
-        </div>
-        <div class="job-grid">
-          <div class="job-card">
-            <div class="job-header">
-              <div>
-                <h3 class="job-title">Mobile App Development for Fitness Startup</h3>
-                <p class="job-company">FitTech Solutions</p>
+        
+        <div class="application-list">
+          <h3>AI Recommended Applications</h3>
+          
+          <!-- Application 1 -->
+          <div class="application-card">
+            <div class="score high-match">
+              <span class="score-value">95%</span>
+              <span class="score-label">Match</span>
+            </div>
+            <div class="applicant-profile">
+              <div class="applicant-avatar">
+                <span>AJ</span>
               </div>
-              <div class="job-price">$5,000</div>
-            </div>
-            <div class="job-tags">
-              <span class="job-tag">React Native</span>
-              <span class="job-tag">iOS</span>
-              <span class="job-tag">Android</span>
-              <span class="job-tag">UI/UX</span>
-            </div>
-            <p class="job-description">Looking for an experienced mobile developer to build a fitness tracking app. The app will include workout tracking, nutrition logging, and social features.</p>
-            <div class="job-footer">
-              <div class="job-metrics">
-                <span class="metric">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  2 weeks ago
-                </span>
-                <span class="metric">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                  15 proposals
-                </span>
+              <div class="applicant-info">
+                <h4>Alex Johnson</h4>
+                <div class="applicant-meta">
+                  <span><i class="fas fa-briefcase"></i> 5 years experience</span>
+                  <span><i class="fas fa-map-marker-alt"></i> New York, USA</span>
+                </div>
               </div>
-              <a href="./application.html" class="job-apply">Apply Now</a>
+            </div>
+            <div class="skills-match">
+              <h5>Skills Match:</h5>
+              <div class="skills-container">
+                <span class="skill-tag matched">HTML</span>
+                <span class="skill-tag matched">CSS</span>
+                <span class="skill-tag matched">JavaScript</span>
+                <span class="skill-tag matched">React</span>
+                <span class="skill-tag">Node.js</span>
+              </div>
+              <div class="match-analysis">
+                <div class="progress-bar">
+                  <div class="progress" style="width: 80%"></div>
+                </div>
+                <span>4/5 required skills matched</span>
+              </div>
+            </div>
+            <div class="experience-section">
+              <h5>Relevant Experience:</h5>
+              <p>Built e-commerce platforms for 3 retail clients, developed a social media dashboard with analytics, created a real-time chat application.</p>
+            </div>
+            <div class="education-section">
+              <h5>Education:</h5>
+              <p>Bachelor's in Computer Science, Full Stack Web Development Bootcamp</p>
+            </div>
+            <div class="ai-insights">
+              <h5><i class="fas fa-lightbulb"></i> AI Insights:</h5>
+              <ul>
+                <li>Strong skills match for project requirements</li>
+                <li>Experience with similar e-commerce platforms</li>
+                <li>Formal education in relevant field</li>
+              </ul>
+            </div>
+            <div class="card-actions">
+              <button class="btn primary">Contact Applicant</button>
+              <button class="btn secondary">View Full Profile</button>
             </div>
           </div>
-          <div class="job-card">
-            <div class="job-header">
-              <div>
-                <h3 class="job-title">Content Writing for Tech Blog</h3>
-                <p class="job-company">TechInsights</p>
-              </div>
-              <div class="job-price">$500</div>
+          
+          <!-- Application 2 -->
+          <div class="application-card">
+            <div class="score good-match">
+              <span class="score-value">82%</span>
+              <span class="score-label">Match</span>
             </div>
-            <div class="job-tags">
-              <span class="job-tag">Content Writing</span>
-              <span class="job-tag">SEO</span>
-              <span class="job-tag">Tech</span>
-            </div>
-            <p class="job-description">We need a skilled content writer to create 5 in-depth articles about emerging technologies. Each article should be around 2000 words and optimized for SEO.</p>
-            <div class="job-footer">
-              <div class="job-metrics">
-                <span class="metric">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  5 days ago
-                </span>
-                <span class="metric">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                  28 proposals
-                </span>
+            <div class="applicant-profile">
+              <div class="applicant-avatar">
+                <span>SW</span>
               </div>
-              <a href="./application.html" class="job-apply">Apply Now</a>
+              <div class="applicant-info">
+                <h4>Sarah Williams</h4>
+                <div class="applicant-meta">
+                  <span><i class="fas fa-briefcase"></i> 4 years experience</span>
+                  <span><i class="fas fa-map-marker-alt"></i> London, UK</span>
+                </div>
+              </div>
+            </div>
+            <div class="skills-match">
+              <h5>Skills Match:</h5>
+              <div class="skills-container">
+                <span class="skill-tag matched">HTML</span>
+                <span class="skill-tag matched">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag matched">UI/UX</span>
+                <span class="skill-tag">Figma</span>
+              </div>
+              <div class="match-analysis">
+                <div class="progress-bar">
+                  <div class="progress" style="width: 60%"></div>
+                </div>
+                <span>3/5 required skills matched</span>
+              </div>
+            </div>
+            <div class="experience-section">
+              <h5>Relevant Experience:</h5>
+              <p>Redesigned mobile banking app increasing user engagement by 40%, created UI for fitness tracking app, designed e-learning platform interface.</p>
+            </div>
+            <div class="education-section">
+              <h5>Education:</h5>
+              <p>Master's in Interaction Design, Google UX Design Certificate</p>
+            </div>
+            <div class="ai-insights">
+              <h5><i class="fas fa-lightbulb"></i> AI Insights:</h5>
+              <ul>
+                <li>Exceptional UI/UX expertise</li>
+                <li>Strong formal education in design</li>
+                <li>Limited JavaScript experience</li>
+              </ul>
+            </div>
+            <div class="card-actions">
+              <button class="btn primary">Contact Applicant</button>
+              <button class="btn secondary">View Full Profile</button>
             </div>
           </div>
-          <div class="job-card">
-            <div class="job-header">
-              <div>
-                <h3 class="job-title">Brand Identity Design for Restaurant</h3>
-                <p class="job-company">Flavor Fusion</p>
-              </div>
-              <div class="job-price">$2,000</div>
+          
+          <h3 class="filtered-heading">AI Filtered Applications</h3>
+          
+          <!-- Filtered Application -->
+          <div class="application-card filtered">
+            <div class="score low-match">
+              <span class="score-value">35%</span>
+              <span class="score-label">Match</span>
             </div>
-            <div class="job-tags">
-              <span class="job-tag">Logo Design</span>
-              <span class="job-tag">Branding</span>
-              <span class="job-tag">Graphics</span>
-            </div>
-            <p class="job-description">New fusion restaurant seeking complete brand identity including logo, color palette, typography, menu design, and social media templates.</p>
-            <div class="job-footer">
-              <div class="job-metrics">
-                <span class="metric">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  1 week ago
-                </span>
-                <span class="metric">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                  9 proposals
-                </span>
+            <div class="applicant-profile">
+              <div class="applicant-avatar">
+                <span>JD</span>
               </div>
-              <a href="./application.html" class="job-apply">Apply Now</a>
+              <div class="applicant-info">
+                <h4>John Doe</h4>
+                <div class="applicant-meta">
+                  <span><i class="fas fa-briefcase"></i> 1 year experience</span>
+                  <span><i class="fas fa-map-marker-alt"></i> Toronto, Canada</span>
+                </div>
+              </div>
+            </div>
+            <div class="skills-match">
+              <h5>Skills Match:</h5>
+              <div class="skills-container">
+                <span class="skill-tag matched">HTML</span>
+                <span class="skill-tag matched">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">WordPress</span>
+              </div>
+              <div class="match-analysis">
+                <div class="progress-bar">
+                  <div class="progress" style="width: 40%"></div>
+                </div>
+                <span>2/5 required skills matched</span>
+              </div>
+            </div>
+            <div class="experience-section">
+              <h5>Relevant Experience:</h5>
+              <p>Created personal portfolio website, helped design church website, developed small business landing page.</p>
+            </div>
+            <div class="education-section">
+              <h5>Education:</h5>
+              <p>Online web development courses, Self-taught</p>
+            </div>
+            <div class="ai-insights">
+              <h5><i class="fas fa-lightbulb"></i> AI Filtering Reasons:</h5>
+              <ul class="reasons">
+                <li>Insufficient experience with React</li>
+                <li>No previous e-commerce projects</li>
+                <li>Limited professional work experience</li>
+                <li>Missing key skills required for the project</li>
+              </ul>
+            </div>
+            <div class="card-actions">
+              <button class="btn secondary">View Full Profile</button>
+              <button class="btn tertiary">Reconsider Application</button>
             </div>
           </div>
-          <div class="job-card">
-            <div class="job-header">
-              <div>
-                <h3 class="job-title">E-commerce Website Development</h3>
-                <p class="job-company">Artisan Crafts</p>
-              </div>
-              <div class="job-price">$3,500</div>
-            </div>
-            <div class="job-tags">
-              <span class="job-tag">Shopify</span>
-              <span class="job-tag">Web Development</span>
-              <span class="job-tag">E-commerce</span>
-            </div>
-            <p class="job-description">Need an expert to build a custom Shopify store for our handcrafted products. Should include custom product filtering, subscription options, and integration with our inventory system.</p>
-            <script>
-              function scrollToSection() {
-                document.getElementById("section2").scrollIntoView({ behavior: 'smooth' });
-              }
-            </script>
-            
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 FreelanceAI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
